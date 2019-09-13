@@ -13,6 +13,7 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var unreadMarkerView: UIView!
     
     @IBOutlet weak var entryImage: UIImageView!
     @IBOutlet weak var commentsCountLabel: UILabel!
@@ -39,6 +40,15 @@ class EntryTableViewCell: UITableViewCell {
             self.entryImage.isHidden = true
         }
         
+        if let viewed = entry.viewed, viewed {
+            unreadMarkerView.isHidden = true
+
+        } else {
+            unreadMarkerView.layer.cornerRadius = unreadMarkerView.frame.size.width/2
+            unreadMarkerView.clipsToBounds = true
+            unreadMarkerView.layer.borderWidth = 5.0
+            unreadMarkerView.isHidden = false
+        }
         
         self.commentsCountLabel.text = entry.comments.description + " comments"
         self.timeLabel.text = currentDate.dateTimeAgo(sinceDate: date)

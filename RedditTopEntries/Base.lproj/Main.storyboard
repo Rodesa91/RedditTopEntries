@@ -14,7 +14,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="MainViewController" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -39,13 +39,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhI-HI-Hh9">
-                                                    <rect key="frame" x="40" y="31" width="44.5" height="48.5"/>
+                                                    <rect key="frame" x="50" y="31" width="44.5" height="48.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySc-Gg-Eq0">
-                                                    <rect key="frame" x="109.5" y="45" width="42" height="20.5"/>
+                                                    <rect key="frame" x="119.5" y="45" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -69,8 +69,18 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Las-nY-dYK">
+                                                    <rect key="frame" x="25" y="31" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="0.16670223882913782" green="0.69654763025841449" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="ZhV-YA-1dm"/>
+                                                        <constraint firstAttribute="width" constant="20" id="gLE-bh-Z3m"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ySc-Gg-Eq0" secondAttribute="trailing" constant="20" symbolic="YES" id="0cg-Fu-UAL"/>
+                                                <constraint firstItem="Las-nY-dYK" firstAttribute="leading" secondItem="ukf-Xf-WEs" secondAttribute="leadingMargin" constant="5" id="149-bh-r8L"/>
                                                 <constraint firstAttribute="bottom" secondItem="nWB-Qg-SKk" secondAttribute="bottom" constant="50" id="3NB-A1-rh2"/>
                                                 <constraint firstItem="nWB-Qg-SKk" firstAttribute="top" secondItem="RhI-HI-Hh9" secondAttribute="bottom" constant="15" id="FIU-Ac-iZ8"/>
                                                 <constraint firstItem="RhI-HI-Hh9" firstAttribute="top" secondItem="ukf-Xf-WEs" secondAttribute="topMargin" constant="20" id="MQo-Gp-R50"/>
@@ -82,9 +92,10 @@
                                                 <constraint firstItem="TcT-hY-Ocx" firstAttribute="top" secondItem="nWB-Qg-SKk" secondAttribute="top" id="kao-FH-Rwa"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ffM-f7-VQd" secondAttribute="bottom" constant="10" id="lkD-BR-Xe1"/>
                                                 <constraint firstItem="ffM-f7-VQd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ukf-Xf-WEs" secondAttribute="leading" constant="20" symbolic="YES" id="ndf-t5-qIA"/>
+                                                <constraint firstItem="Las-nY-dYK" firstAttribute="top" secondItem="ukf-Xf-WEs" secondAttribute="topMargin" constant="20" id="nyK-5n-ywd"/>
                                                 <constraint firstItem="TcT-hY-Ocx" firstAttribute="height" secondItem="nWB-Qg-SKk" secondAttribute="height" id="oZ6-Wf-eLo"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ffM-f7-VQd" secondAttribute="trailing" constant="20" id="uGE-LS-am0"/>
-                                                <constraint firstItem="RhI-HI-Hh9" firstAttribute="leading" secondItem="ukf-Xf-WEs" secondAttribute="leadingMargin" constant="20" id="yRY-ah-xko"/>
+                                                <constraint firstItem="RhI-HI-Hh9" firstAttribute="leading" secondItem="ukf-Xf-WEs" secondAttribute="leadingMargin" constant="30" id="yRY-ah-xko"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,6 +105,7 @@
                                             <outlet property="descriptionLabel" destination="TcT-hY-Ocx" id="np4-Xk-dSA"/>
                                             <outlet property="entryImage" destination="nWB-Qg-SKk" id="BNY-Gf-YId"/>
                                             <outlet property="timeLabel" destination="ySc-Gg-Eq0" id="i15-BP-8is"/>
+                                            <outlet property="unreadMarkerView" destination="Las-nY-dYK" id="da7-e7-aRn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -129,7 +141,7 @@
         <!--Entry Detail View Controller-->
         <scene sceneID="Fdk-Yg-t2A">
             <objects>
-                <viewController id="1DD-dY-1Cj" customClass="EntryDetailViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="EntryDetailViewController" id="1DD-dY-1Cj" customClass="EntryDetailViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gA-yi-Cah">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +193,7 @@
         <!--Image View Controller-->
         <scene sceneID="LVl-7Z-gdv">
             <objects>
-                <viewController id="whg-aH-TL3" customClass="ImageViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ImageViewController" id="whg-aH-TL3" customClass="ImageViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xIw-iK-HkC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +243,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Sot-6b-LML">
             <objects>
-                <navigationController id="A9K-fl-qqv" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MainNavigationController" id="A9K-fl-qqv" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="IYS-CS-Py6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

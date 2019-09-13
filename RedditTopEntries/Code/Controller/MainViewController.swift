@@ -32,6 +32,11 @@ class MainViewController: UIViewController {
         self.getData(lastID: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.entriesTableView.reloadData()
+    }
+    
     func getData(lastID:String?){
         RedditClient.sharedClient.getTopEntries (after: lastID){ (result, error) in
             guard error == nil else {
@@ -64,7 +69,21 @@ class MainViewController: UIViewController {
             let entryIndex = entriesTableView.indexPathForSelectedRow?.row
         {
             destination.entry = topEntries[entryIndex]
+            var entry = topEntries[entryIndex]
+            entry.viewed = true
+            topEntries[entryIndex] = entry
         }
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(topEntries, forKey: "TopEntries")
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        let entries = coder.decodeObject(forKey: "TopEntries") as! [RedditEntry]
+        self.topEntries = entries
     }
 }
 
@@ -92,5 +111,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: detailSegueIdentifier, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
 
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            self.topEntries.remove(at: indexPath.row)
+            self.entriesTableView.reloadData()
+        }
     }
 }

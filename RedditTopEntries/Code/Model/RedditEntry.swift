@@ -16,6 +16,7 @@ struct RedditEntry:Codable {
     let created: Double
     let imageUrl: String?
     let comments: Int
+    var viewed:Bool?
     
     enum CodingKeys : String, CodingKey {
         case title
@@ -25,6 +26,7 @@ struct RedditEntry:Codable {
         case created = "created_utc"
         case imageUrl = "url"
         case comments = "num_comments"
+        case viewed
     }
 }
 
