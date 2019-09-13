@@ -9,14 +9,14 @@
 import UIKit
 
 enum APIRoute {
-    static let topListingUrl = "https://www.reddit.com/top.json?limit=50"
+    static let topListingUrl = "https://www.reddit.com/top.json?limit=10"
 }
 
 class RedditClient {
     
     static let sharedClient = RedditClient()
     
-    func getTopEntries (after:String?, onCompletion :@escaping (_ response: [Entry]?, _ error: Error?) -> Void)  {
+    func getTopEntries (after:String?, onCompletion :@escaping (_ response: [RedditEntry]?, _ error: Error?) -> Void)  {
         
         var urlAddress:String = APIRoute.topListingUrl
         
@@ -26,7 +26,7 @@ class RedditClient {
         
         guard let url = URL(string: urlAddress) else { return }
         
-        var topEntries:[Entry] = []
+        var topEntries:[RedditEntry] = []
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {

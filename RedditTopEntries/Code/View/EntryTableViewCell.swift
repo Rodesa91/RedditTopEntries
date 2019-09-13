@@ -25,7 +25,7 @@ class EntryTableViewCell: UITableViewCell {
     }
     
     
-    func configureCellWithEntry(entry: Entry) {
+    func configureCellWithEntry(entry: RedditEntry) {
         self.authorLabel.text = entry.author
         self.descriptionLabel.text = entry.title
         let currentDate:Date = Date()

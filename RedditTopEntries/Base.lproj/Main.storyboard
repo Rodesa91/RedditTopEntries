@@ -13,14 +13,22 @@
         <!--Reddit Posts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxp-S2-Vz1">
+                                <rect key="frame" x="0.0" y="827" width="414" height="59"/>
+                                <state key="normal" title="Dismiss all">
+                                    <color key="titleColor" red="1" green="0.53515313549999999" blue="0.079423688879999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dissmissAllPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRF-Ph-h24"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xQq-5a-3D5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="739"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" rowHeight="220" id="Xl2-7R-AU3" customClass="EntryTableViewCell" customModule="RedditTopEntries" customModuleProvider="target">
@@ -97,20 +105,77 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jxp-S2-Vz1" secondAttribute="trailing" id="4yF-90-NgJ"/>
+                            <constraint firstItem="jxp-S2-Vz1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BFv-oC-EZb"/>
                             <constraint firstItem="xQq-5a-3D5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gck-Fn-acM"/>
+                            <constraint firstAttribute="bottom" secondItem="jxp-S2-Vz1" secondAttribute="bottom" constant="10" id="K6B-gV-e85"/>
+                            <constraint firstItem="jxp-S2-Vz1" firstAttribute="top" secondItem="xQq-5a-3D5" secondAttribute="bottom" id="TyC-9D-mno"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xQq-5a-3D5" secondAttribute="trailing" id="Yep-gr-E1o"/>
                             <constraint firstItem="xQq-5a-3D5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bsw-6Y-xkf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xQq-5a-3D5" secondAttribute="bottom" id="h0o-nO-MmV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xQq-5a-3D5" secondAttribute="bottom" constant="35" id="h0o-nO-MmV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reddit Posts" id="EK3-ln-jNa"/>
                     <connections>
                         <outlet property="entriesTableView" destination="xQq-5a-3D5" id="u1R-5V-WtZ"/>
+                        <segue destination="1DD-dY-1Cj" kind="show" identifier="goToEntryDetail" id="nM2-Rn-qun"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-159.42028985507247" y="-370.3125"/>
+        </scene>
+        <!--Entry Detail View Controller-->
+        <scene sceneID="Fdk-Yg-t2A">
+            <objects>
+                <viewController id="1DD-dY-1Cj" customClass="EntryDetailViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7gA-yi-Cah">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOa-DJ-vEx">
+                                <rect key="frame" x="20" y="108" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-BW-ffM">
+                                <rect key="frame" x="20" y="313" width="374" height="519"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8o-d0-V0D">
+                                <rect key="frame" x="132" y="138" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="8Uh-XG-tPi"/>
+                                    <constraint firstAttribute="height" constant="150" id="uOn-G8-CMp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fTO-zw-IYu" firstAttribute="trailing" secondItem="xjb-BW-ffM" secondAttribute="trailing" constant="20" id="3J8-iq-ORQ"/>
+                            <constraint firstItem="xjb-BW-ffM" firstAttribute="leading" secondItem="fTO-zw-IYu" secondAttribute="leading" constant="20" id="Jsa-fv-FcZ"/>
+                            <constraint firstItem="xjb-BW-ffM" firstAttribute="top" secondItem="r8o-d0-V0D" secondAttribute="bottom" constant="25" id="WCf-o0-WS8"/>
+                            <constraint firstItem="fTO-zw-IYu" firstAttribute="bottom" secondItem="xjb-BW-ffM" secondAttribute="bottom" constant="30" id="bWf-Nf-IxQ"/>
+                            <constraint firstItem="r8o-d0-V0D" firstAttribute="top" secondItem="fTO-zw-IYu" secondAttribute="top" constant="50" id="dfI-Hm-kec"/>
+                            <constraint firstItem="GOa-DJ-vEx" firstAttribute="leading" secondItem="fTO-zw-IYu" secondAttribute="leading" constant="20" id="etx-Eh-Cow"/>
+                            <constraint firstItem="GOa-DJ-vEx" firstAttribute="top" secondItem="fTO-zw-IYu" secondAttribute="top" constant="20" id="gRR-xp-LIP"/>
+                            <constraint firstItem="r8o-d0-V0D" firstAttribute="centerX" secondItem="7gA-yi-Cah" secondAttribute="centerX" id="z8Q-HX-heC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fTO-zw-IYu"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="GOa-DJ-vEx" id="mer-mi-bMl"/>
+                        <outlet property="descriptionLabel" destination="xjb-BW-ffM" id="gCu-LZ-pHr"/>
+                        <outlet property="thumbnailImage" destination="r8o-d0-V0D" id="CPJ-d2-5yE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79W-Rq-IdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671.01449275362324" y="-370.3125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sot-6b-LML">

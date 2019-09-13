@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Entry:Codable {
+struct RedditEntry:Codable {
     let title: String
     let name: String
     let author: String
@@ -37,5 +37,5 @@ struct ListingData:Codable {
 }
 
 struct ChildrenData:Codable {
-    let data : Entry
+    let data : RedditEntry
 }
