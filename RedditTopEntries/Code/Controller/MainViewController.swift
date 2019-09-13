@@ -11,7 +11,10 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var entriesTableView: UITableView!
+    
     let detailSegueIdentifier = "goToEntryDetail"
+    var topEntries:[RedditEntry] = []
+
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
@@ -22,7 +25,6 @@ class MainViewController: UIViewController {
         return refreshControl
     }()
 
-    var topEntries:[RedditEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

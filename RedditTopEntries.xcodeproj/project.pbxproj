@@ -17,6 +17,8 @@
 		1170DDE42329BAF8008D9B09 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170DDE32329BAF8008D9B09 /* EntryTableViewCell.swift */; };
 		1170DDE72329C8DE008D9B09 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170DDE62329C8DE008D9B09 /* Date+Extensions.swift */; };
 		1170DDE92329C907008D9B09 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170DDE82329C907008D9B09 /* UIImage+Extensions.swift */; };
+		118974F7232BEE1D00FC3489 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118974F6232BEE1D00FC3489 /* ImageViewController.swift */; };
+		118974FA232BF3FB00FC3489 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118974F9232BF3FB00FC3489 /* WebKit.framework */; };
 		11913DE7232ABB47000ACDEE /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11913DE6232ABB47000ACDEE /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		1170DDE32329BAF8008D9B09 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		1170DDE62329C8DE008D9B09 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		1170DDE82329C907008D9B09 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		118974F6232BEE1D00FC3489 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		118974F9232BF3FB00FC3489 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		11913DE6232ABB47000ACDEE /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118974FA232BF3FB00FC3489 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +57,7 @@
 			children = (
 				1170DDC5232971D4008D9B09 /* RedditTopEntries */,
 				1170DDC4232971D4008D9B09 /* Products */,
+				118974F8232BF3FB00FC3489 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +123,7 @@
 			children = (
 				1170DDDD2329727A008D9B09 /* MainViewController.swift */,
 				11913DE6232ABB47000ACDEE /* EntryDetailViewController.swift */,
+				118974F6232BEE1D00FC3489 /* ImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +135,14 @@
 				1170DDE82329C907008D9B09 /* UIImage+Extensions.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		118974F8232BF3FB00FC3489 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				118974F9232BF3FB00FC3489 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1170DDE2232984B6008D9B09 /* RedditEntry.swift in Sources */,
+				118974F7232BEE1D00FC3489 /* ImageViewController.swift in Sources */,
 				1170DDE42329BAF8008D9B09 /* EntryTableViewCell.swift in Sources */,
 				1170DDDE2329727A008D9B09 /* MainViewController.swift in Sources */,
 				1170DDE92329C907008D9B09 /* UIImage+Extensions.swift in Sources */,

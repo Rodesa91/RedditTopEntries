@@ -140,12 +140,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-BW-ffM">
-                                <rect key="frame" x="20" y="313" width="374" height="519"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r8o-d0-V0D">
                                 <rect key="frame" x="132" y="138" width="150" height="150"/>
                                 <constraints>
@@ -153,29 +147,86 @@
                                     <constraint firstAttribute="height" constant="150" id="uOn-G8-CMp"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aIJ-TG-eBE">
+                                <rect key="frame" x="20" y="313" width="374" height="549"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fTO-zw-IYu" firstAttribute="trailing" secondItem="xjb-BW-ffM" secondAttribute="trailing" constant="20" id="3J8-iq-ORQ"/>
-                            <constraint firstItem="xjb-BW-ffM" firstAttribute="leading" secondItem="fTO-zw-IYu" secondAttribute="leading" constant="20" id="Jsa-fv-FcZ"/>
-                            <constraint firstItem="xjb-BW-ffM" firstAttribute="top" secondItem="r8o-d0-V0D" secondAttribute="bottom" constant="25" id="WCf-o0-WS8"/>
-                            <constraint firstItem="fTO-zw-IYu" firstAttribute="bottom" secondItem="xjb-BW-ffM" secondAttribute="bottom" constant="30" id="bWf-Nf-IxQ"/>
+                            <constraint firstItem="fTO-zw-IYu" firstAttribute="trailing" secondItem="aIJ-TG-eBE" secondAttribute="trailing" constant="20" id="cPe-5E-g3I"/>
                             <constraint firstItem="r8o-d0-V0D" firstAttribute="top" secondItem="fTO-zw-IYu" secondAttribute="top" constant="50" id="dfI-Hm-kec"/>
                             <constraint firstItem="GOa-DJ-vEx" firstAttribute="leading" secondItem="fTO-zw-IYu" secondAttribute="leading" constant="20" id="etx-Eh-Cow"/>
+                            <constraint firstItem="aIJ-TG-eBE" firstAttribute="top" secondItem="r8o-d0-V0D" secondAttribute="bottom" constant="25" id="ezD-Pr-LKs"/>
                             <constraint firstItem="GOa-DJ-vEx" firstAttribute="top" secondItem="fTO-zw-IYu" secondAttribute="top" constant="20" id="gRR-xp-LIP"/>
+                            <constraint firstItem="fTO-zw-IYu" firstAttribute="bottom" secondItem="aIJ-TG-eBE" secondAttribute="bottom" id="sMT-cm-lwS"/>
+                            <constraint firstItem="aIJ-TG-eBE" firstAttribute="leading" secondItem="fTO-zw-IYu" secondAttribute="leading" constant="20" id="uBs-w5-UqR"/>
                             <constraint firstItem="r8o-d0-V0D" firstAttribute="centerX" secondItem="7gA-yi-Cah" secondAttribute="centerX" id="z8Q-HX-heC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fTO-zw-IYu"/>
                     </view>
                     <connections>
                         <outlet property="authorLabel" destination="GOa-DJ-vEx" id="mer-mi-bMl"/>
-                        <outlet property="descriptionLabel" destination="xjb-BW-ffM" id="gCu-LZ-pHr"/>
+                        <outlet property="contentTextView" destination="aIJ-TG-eBE" id="6Hp-pi-9ar"/>
                         <outlet property="thumbnailImage" destination="r8o-d0-V0D" id="CPJ-d2-5yE"/>
+                        <segue destination="whg-aH-TL3" kind="show" identifier="showImageScreen" id="g9G-Kq-yVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79W-Rq-IdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671.01449275362324" y="-370.3125"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="LVl-7Z-gdv">
+            <objects>
+                <viewController id="whg-aH-TL3" customClass="ImageViewController" customModule="RedditTopEntries" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIw-iK-HkC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y1t-CG-8Cu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2K6-5l-bWr">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y1t-CG-8Cu" firstAttribute="top" secondItem="wcl-uE-Id8" secondAttribute="top" id="JDH-yh-ovo"/>
+                            <constraint firstItem="Y1t-CG-8Cu" firstAttribute="leading" secondItem="xIw-iK-HkC" secondAttribute="leading" id="K1Q-VT-5Xe"/>
+                            <constraint firstItem="Y1t-CG-8Cu" firstAttribute="top" secondItem="wcl-uE-Id8" secondAttribute="top" id="LdD-uR-ea2"/>
+                            <constraint firstItem="2K6-5l-bWr" firstAttribute="leading" secondItem="wcl-uE-Id8" secondAttribute="leading" id="MpY-MG-uJs"/>
+                            <constraint firstItem="wcl-uE-Id8" firstAttribute="trailing" secondItem="2K6-5l-bWr" secondAttribute="trailing" id="T56-ir-PD8"/>
+                            <constraint firstItem="2K6-5l-bWr" firstAttribute="top" secondItem="wcl-uE-Id8" secondAttribute="top" id="TIn-DJ-YbA"/>
+                            <constraint firstItem="wcl-uE-Id8" firstAttribute="bottom" secondItem="2K6-5l-bWr" secondAttribute="bottom" id="f8N-hg-5pB"/>
+                            <constraint firstItem="wcl-uE-Id8" firstAttribute="bottom" secondItem="Y1t-CG-8Cu" secondAttribute="bottom" id="rZG-Td-MBo"/>
+                            <constraint firstItem="wcl-uE-Id8" firstAttribute="trailing" secondItem="Y1t-CG-8Cu" secondAttribute="trailing" id="wWM-nP-f9Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wcl-uE-Id8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VaY-K3-t8B">
+                        <barButtonItem key="rightBarButtonItem" image="saveIcon" id="mqG-tz-Rcu">
+                            <connections>
+                                <action selector="saveImage:" destination="whg-aH-TL3" id="HUp-Ye-iQD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="entryImage" destination="Y1t-CG-8Cu" id="j2I-7z-179"/>
+                        <outlet property="webview" destination="2K6-5l-bWr" id="pZY-kB-qSw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfp-ne-tVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534.7826086956522" y="-370.3125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sot-6b-LML">
@@ -194,4 +245,7 @@
             <point key="canvasLocation" x="-1112" y="-369"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="saveIcon" width="17.5" height="17.5"/>
+    </resources>
 </document>
